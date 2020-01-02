@@ -5,9 +5,10 @@ category: Jetpack
 tags: [android, Jetpack]
 keywords: Jetpack
 excerpt: Android Jetpack --Foundation（行为）
+
 ---
 
-##Android Jetpack --Foundation（行为）
+## Android Jetpack --Foundation（行为）
 
 [TOC]
 
@@ -25,7 +26,7 @@ Android 支持库软件包含可以添加至应用的多个库。每个库均支
 
 要使用以下任一库，您必须将库文件下载到 Android SDK 安装位置中。请按照[支持库设置](https://developer.android.com/tools/support-library/setup.html?hl=zh-cn#download)中下载支持库的说明完成此步骤。要在应用中添加特定支持库，您还必须执行其他步骤。有关如何在应用中添加支持库的重要信息，请参阅下面各个库内容的末尾部分。
 
-#####1.1概览
+##### 1.1概览
 
 许多情况下，某项功能可能对应用开发者很有用，但是添加到 Android 框架却并不合适。例如，某个应用可能仅需要用于特定用例的某项功能，如在不同版本的 Android 系统之间顺畅切换。
 
@@ -38,7 +39,7 @@ Android 支持库软件包含可以添加至应用的多个库。每个库均支
 - 支持不同的[设备类型](https://developer.android.com/topic/libraries/support-library/?hl=zh-cn#form-factors)。
 - 其他[实用程序](https://developer.android.com/topic/libraries/support-library/?hl=zh-cn#utils)功能。
 
-#####1.2向后兼容性
+##### 1.2向后兼容性
 
 支持库可以让在旧版本 Android 平台上运行的应用支持为新版本平台推出的功能。例如，应用在依赖于框架类的 5.0（API 级别 21）版本以下的 Android 系统上运行时，将无法显示 Material Design 元素，因为该版本的 Android 框架不支持 Material Design。但是，如果此应用添加了支持库的 [appcompat 库](https://developer.android.com/tools/support-library/features.html?hl=zh-cn)，则可以访问 API 级别 21 中具有的许多功能，其中包括对 Material Design 的支持。因此，您的应用可以在多个平台版本中提供更为一致的体验。
 
@@ -54,21 +55,21 @@ Android 支持库软件包含可以添加至应用的多个库。每个库均支
 
 **图 1.** 由于此应用使用支持库 UI 元素，即使是在对 Material Design 不提供原生支持的 Android 4.4 上运行，其界面仍符合 Material Design 原则。
 
-#####1.3支持一般布局模式
+##### 1.3支持一般布局模式
 
 支持库提供 Android 框架中未提供的用户界面元素。例如，Android 支持库提供其他布局类，如 `DrawerLayout`。这些类遵循建议的 Android 设计做法；例如，设计库以一种适合多个 Android 版本的方式遵循 Material Design 的原则。
 
 通过使用这些支持库类，您可以避免做一些重复性工作；如果应用有特殊的用户界面要求，您可以利用现有代码，这些代码将提供用户已经熟悉的用户界面。这些元素还可以帮助您开发看起来像 Android 生态系统一部分的应用。例如，许多应用需要显示任意长的元素列表，且需要能够在列表发生变化时快速有效地重复使用这些元素；这可以是电子邮件列表、联系人列表以及音乐专辑列表，等等。这些应用可以使用支持库 `RecyclerView` 小部件显示列表。这既可以让应用开发者不必从头开始开发列表，又能确保用户看到一个外观和行为与其他应用中的列表类似的列表。
 
-#####1.4支持不同的设备类型
+##### 1.4支持不同的设备类型
 
 Android SDK 为 TV 和穿戴式设备等多种不同的设备类型提供库。应用可以通过相应的支持库为各种平台版本提供功能，且可以在外部屏幕、扬声器和其他目标设备上提供内容。
 
-#####1.5一般实用程序
+##### 1.5一般实用程序
 
 Android 支持库提供后向兼容的实用程序功能。应用可以使用这些实用程序功能为各种 Android 系统版本提供相应的用户体验。例如，支持库的权限处理方式取决于运行应用的平台版本。如果平台支持运行时权限模式，这些方法会向用户请求相应的权限；在不支持运行时权限模式的平台版本中，这些方法将在安装时检查是否已获得相应的权限。
 
-####2.参考内容
+#### 2.参考内容
 
 https://developer.android.com/topic/libraries/support-library/?hl=zh-cn
 
