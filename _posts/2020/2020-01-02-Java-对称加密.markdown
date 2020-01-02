@@ -1,0 +1,192 @@
+---
+layout: post
+title: Java 对称加密
+category: 密码学
+tags: [java, encryt]
+keywords: encryt
+excerpt: Java 对称加密
+
+---
+
+## Java 对称加密
+
+#### Blowfish 加密
+
+Blowfish是一个[对称密钥加密](https://zh.wikipedia.org/wiki/對稱密鑰加密)算法，由布鲁斯·施奈尔于1993年设计，现已应用在多种加密产品。Blowfish能保证很好的加密速度，并且当前为止没有发现有效地破解方法。当前为止[AES](https://zh.wikipedia.org/wiki/AES)比Blowfish有更广的知名度。
+
+施奈尔设计的Blowfish算法用途广泛，意在替代老旧的[DES](https://zh.wikipedia.org/wiki/DES)及避免其他算法的问题与限制。Blowfish刚刚研发出的时候，大部分其他加密算法是专利所有的或属于商业(政府)机密，所以发展起来非常受限制。施奈尔则声明Blowfish的使用没有任何限制，任何国家任何人任何时候都可以随意使用Blowfish算法。
+
+Blowfish主要包括关键的几个[S盒](https://zh.wikipedia.org/wiki/S盒)和一个复杂的核心变换函数。
+
+##### 代码示例：
+
+- 生成密钥：
+
+```java
+String password = "012345678912345678901234";
+// 传入密钥时，使用 password.getBytes() 转 byte[] 即可
+private static SecretKey generateBLKey(byte[] password) throws Exception {
+    return new SecretKeySpec(password, "Blowfish");
+}
+```
+
+- 加密数据
+
+```java
+//java 1.8 支持 如下的工作模式和填充方式
+//加解密算法/工作模式/填充方式
+//Blowfish/ECB/ PKCS5Padding
+//Blowfish/CBC/ NoPadding
+//Blowfish/CFB/ ISO10126Padding
+public static byte[] encryptBL(SecretKey key, String text) throws Exception  {
+    Cipher cipher = Cipher.getInstance("Blowfish/ECB/PKCS5Padding");
+    cipher.init(Cipher.ENCRYPT_MODE, key);
+    return cipher.doFinal(text.getBytes());
+}
+```
+
+- 解密数据
+
+```java
+public static byte[] decryptBL(SecretKey key,byte[] bt) throws Exception  {
+    Cipher cipher = Cipher.getInstance("Blowfish/ECB/PKCS5Padding");
+    cipher.init(Cipher.DECRYPT_MODE, key);
+    return cipher.doFinal(bt);
+ }
+```
+
+#### AES
+
+**高级加密标准**（英语：**A**dvanced **E**ncryption **S**tandard，[缩写](https://zh.wikipedia.org/wiki/缩写)：AES），在[密码学](https://zh.wikipedia.org/wiki/密码学)中又称**Rijndael加密法**，是[美国联邦政府](https://zh.wikipedia.org/wiki/美国联邦政府)采用的一种[区块加密](https://zh.wikipedia.org/wiki/區塊加密)标准。这个标准用来替代原先的[DES](https://zh.wikipedia.org/wiki/DES)，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由[美国国家标准与技术研究院](https://zh.wikipedia.org/wiki/美国国家标准与技术研究院)（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。2006年，高级加密标准已然成为[对称密钥加密](https://zh.wikipedia.org/wiki/对称密钥加密)中最流行的[算法](https://zh.wikipedia.org/wiki/演算法)之一。
+
+该算法为[比利时](https://zh.wikipedia.org/wiki/比利时)密码学家Joan Daemen和Vincent Rijmen所设计，结合两位作者的名字，以Rijndael为名投稿高级加密标准的甄选流程。（Rijndael的发音近于"Rhine doll"）
+
+##### 代码示例：
+
+- 生成密钥
+
+```java
+// jdk 1.7 1.8 不支持AES的 SecretKeyFactory，可以使用secretKeySpec生成密钥
+String password = "012345678912345678901234";
+// 传入密钥时，使用 password.getBytes() 转 byte[] 即可
+private static SecretKey generateAESKey(byte[]password) throws Throwable {
+    return new SecretKeySpec(password, "AES");
+}
+```
+
+- 加密数据
+
+```java
+//IV 初始向量（英语：initialization vector，）是一个固定长度的输入值。一般的使用上会要求它是随机数或拟随机数（pseudorandom），这里为了简单 使用 16位的空byte[];
+public static final byte[] encrypt(String plainText, SecretKey key) {
+    try {
+        Cipher cipher = Cipher.getInstance(DEFAULT_TRANSFORMATION);
+        cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        return cipher.doFinal(plainText.getBytes("UTF-8"));
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+```
+
+- 解密数据
+
+```java
+public static final byte[] decrypt(byte[] cipherText, SecretKey key) {
+    try {
+        Cipher cipher = Cipher.getInstance(DEFAULT_TRANSFORMATION);
+        cipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(new byte[16]));
+        return cipher.doFinal(cipherText);
+    } catch (Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+```
+
+#### DES
+
+**数据加密标准**（英语：Data Encryption Standard，缩写为 DES）是一种[对称密钥加密](https://zh.wikipedia.org/wiki/對稱密鑰加密)[块密码](https://zh.wikipedia.org/wiki/塊密碼)算法，1976年被[美国](https://zh.wikipedia.org/wiki/美国)联邦政府的[国家标准局](https://zh.wikipedia.org/wiki/国家标准局)确定为[联邦资料处理标准](https://zh.wikipedia.org/wiki/联邦资料处理标准)（FIPS），随后在国际上广泛流传开来。它基于使用56位密钥的[对称算法](https://zh.wikipedia.org/w/index.php?title=密钥密码学&action=edit&redlink=1)。这个算法因为包含一些[机密](https://zh.wikipedia.org/wiki/機密)设计元素，相对短的[密钥长度](https://zh.wikipedia.org/wiki/密钥长度)以及怀疑内含[美国国家安全局](https://zh.wikipedia.org/wiki/美國國家安全局)（NSA）的[后门](https://zh.wikipedia.org/wiki/后门)而在开始时有争议，DES因此受到了强烈的学院派式的审查，并以此推动了现代的[块密码](https://zh.wikipedia.org/wiki/塊密碼)及其[密码分析](https://zh.wikipedia.org/wiki/密码分析)的发展。
+
+DES现在已经不是一种安全的加密方法，主要因为它使用的56位密钥过短。1999年1月，[distributed.net](https://zh.wikipedia.org/w/index.php?title=Distributed.net&action=edit&redlink=1)与[电子前哨基金会](https://zh.wikipedia.org/wiki/电子前哨基金会)合作，在22小时15分钟内即公开破解了一个DES密钥。也有一些分析报告提出了该算法的理论上的弱点，虽然在实际中难以应用。为了提供实用所需的安全性，可以使用DES的派生算法[3DES](https://zh.wikipedia.org/wiki/3DES)来进行加密，虽然3DES也存在理论上的攻击方法。在2001年，DES作为一个标准已经被高级加密标准（AES）所取代。另外，DES已经不再作为[国家标准科技协会](https://zh.wikipedia.org/wiki/NIST)（前国家标准局）的一个标准。
+
+在某些文献中，作为算法的DES被称为**DEA**（**Data Encryption Algorithm**，数据加密算法），以与作为标准的DES区分开来。在发音时，DES可以作为[缩写](https://zh.wikipedia.org/wiki/缩写)按字母拼出来([/ˌdiːˌiːˈɛs/](https://zh.wikipedia.org/wiki/Wikipedia:國際音標英語發音))，或作为一个词念成[/](https://zh.wikipedia.org/wiki/Wikipedia:國際音標英語發音)
+
+##### 示例代码
+
+- 生成密钥
+
+```java
+private static SecretKey generateDESKey(byte[]password) throws  Throwable{
+    DESKeySpec desKey = new DESKeySpec(password);
+    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+    return keyFactory.generateSecret(desKey);
+}
+```
+
+- 加密数据
+
+```java
+public static byte[] encrypt(byte[] data, SecretKey key) throws  Throwable{
+    Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+    cipher.init(Cipher.ENCRYPT_MODE,key);
+    return cipher.doFinal(data);
+}
+```
+
+- 解密数据
+
+```java
+public static byte[] decrypt(byte[] data, SecretKey key) throws  Throwable{
+    Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+    cipher.init(Cipher.DECRYPT_MODE, key);
+    return cipher.doFinal(data);
+}
+```
+
+#### 3DES
+
+[密码学](https://zh.wikipedia.org/wiki/密码学)中，**三重数据加密算法**（英语：Triple Data Encryption Algorithm，缩写为TDEA，Triple DEA），或称**3DES**（Triple DES），是一种[对称密钥加密](https://zh.wikipedia.org/wiki/對稱密鑰加密)[块密码](https://zh.wikipedia.org/wiki/塊密碼)，相当于是对每个数据块应用三次[数据加密标准](https://zh.wikipedia.org/wiki/資料加密標準)（DES）算法。由于计算机运算能力的增强，原版DES密码的[密钥长度](https://zh.wikipedia.org/wiki/密钥长度)变得容易被[暴力破解](https://zh.wikipedia.org/wiki/暴力破解)；3DES即是设计用来提供一种相对简单的方法，即通过增加DES的密钥长度来避免类似的攻击，而不是设计一种全新的块密码算法。
+
+#### 代码示例
+
+- 密钥生成
+
+```java
+private static SecretKey generate3DESKey(byte[]password) throws  Throwable{
+    DESedeKeySpec desKey = new DESedeKeySpec(password);
+    SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("TripleDES");
+    return keyFactory.generateSecret(desKey);
+}
+```
+
+- 加密数据
+
+```java
+public static byte[] encrypt(byte[] data, Key key) throws  Throwable{
+    Cipher cipher = Cipher.getInstance("TripleDES/ECB/PKCS5Padding");
+    cipher.init(Cipher.ENCRYPT_MODE,key);
+    return cipher.doFinal(data);
+}
+```
+
+- 解密数据
+
+```java
+public static byte[] decrypt(byte[] data, Key key) throws  Throwable{
+    Cipher cipher = Cipher.getInstance("TripleDES/ECB/PKCS5Padding");
+    cipher.init(Cipher.DECRYPT_MODE, key);
+    return cipher.doFinal(data);
+}
+```
+
+### 参考内容
+
+1.https://zh.wikipedia.org/wiki/Blowfish
+
+2.[https://zh.wikipedia.org/wiki/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F](https://zh.wikipedia.org/wiki/分组密码工作模式)
+
+3.[https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86](https://zh.wikipedia.org/wiki/高级加密标准)
+
+4.[https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E5%8A%A0%E5%AF%86%E6%A8%99%E6%BA%96](https://zh.wikipedia.org/wiki/資料加密標準)
+
+5.https://zh.wikipedia.org/wiki/3DES
