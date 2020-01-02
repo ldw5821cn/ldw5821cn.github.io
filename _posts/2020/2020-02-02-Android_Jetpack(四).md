@@ -1,11 +1,13 @@
 ---
 layout: post
-title:Android Jetpack(四)--UI（界面）
+title: Android Jetpack(四)--UI（界面）
 category: Jetpack
 tags: [android, Jetpack]
-keywords: Android
+keywords: Jetpack
 excerpt: Android Jetpack(四)--UI（界面）
+
 ---
+
 
 ## Android Jetpack(四)--UI（界面）
 
