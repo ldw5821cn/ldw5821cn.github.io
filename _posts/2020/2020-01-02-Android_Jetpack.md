@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android Jetpack
-category: JetPack
+category: Jetpack
 tags: [android,Jetpack]
 keywords: Android,JetPack
 excerpt: Android Jetpack
@@ -9,7 +9,7 @@ excerpt: Android Jetpack
 
 
 
-#Android Jetpack
+# Android Jetpack
 
 ### 什么是Android Jetpack？
 
@@ -19,7 +19,7 @@ Android Jetpack 是一套组件、工具和指导，可以帮助您构建出色�
 
 ### Android Jetpack的组成部分
 
-####1、Foundation （基础）
+#### 1、Foundation （基础）
 
 基础组件提供核心系统功能、Kotlin 扩展以及对多 dex 处理和自动化测试的支持。
 
