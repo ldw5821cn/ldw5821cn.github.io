@@ -5,9 +5,10 @@ category: JetPack
 tags: [android,Jetpack]
 keywords: Android,JetPack
 excerpt: Android Jetpack --Architecture（架构）
+
 ---
 
-##Android Jetpack --Architecture（架构）
+## Android Jetpack --Architecture（架构）
 
 [TOC]
 
@@ -193,7 +194,7 @@ I/TAG: TD8LifecyleObserver onResume..............MainActivity
 
 
 
-####5.参考内容
+#### 5.参考内容
 
 https://www.jianshu.com/p/2c9bcbf092bc
 
@@ -201,7 +202,7 @@ https://developer.android.com/jetpack/arch/lifecycle?hl=zh-cn#lc
 
 https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?index
 
-###二、Navigation
+### 二、Navigation
 
 #### 1.简介
 
@@ -231,7 +232,7 @@ https://codelabs.developers.google.com/codelabs/android-lifecycles/index.html?in
 
 
 
-####2.如何使用Navigation
+#### 2.如何使用Navigation
 
 - 引入依赖
 
@@ -321,7 +322,7 @@ https://juejin.im/entry/5b082c806fb9a07ab1119cc6
 
 
 
-###三、Room
+### 三、Room
 
 #### 1.简介 
 
@@ -564,7 +565,7 @@ WorkManager API使用几个不同的类。在某些情况下，您需要子类�
   ```
 
 
-####3.参考内容
+#### 3.参考内容
 
 https://developer.android.com/topic/libraries/architecture/workmanager/advanced
 
