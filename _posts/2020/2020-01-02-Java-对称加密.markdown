@@ -8,7 +8,7 @@ excerpt: Java 对称加密
 
 ---
 
-## Java 对称加密
+## Java 对称加密(Blowfish,AES,DES,3DES)
 
 #### Blowfish 加密
 
@@ -181,7 +181,7 @@ public static byte[] decrypt(byte[] data, Key key) throws  Throwable{
 
 ### 参考内容
 
-1.https://zh.wikipedia.org/wiki/Blowfish
+1.[https://zh.wikipedia.org/wiki/Blowfish](https://zh.wikipedia.org/wiki/Blowfish)
 
 2.[https://zh.wikipedia.org/wiki/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F](https://zh.wikipedia.org/wiki/分组密码工作模式)
 
@@ -189,4 +189,4 @@ public static byte[] decrypt(byte[] data, Key key) throws  Throwable{
 
 4.[https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E5%8A%A0%E5%AF%86%E6%A8%99%E6%BA%96](https://zh.wikipedia.org/wiki/資料加密標準)
 
-5.https://zh.wikipedia.org/wiki/3DES
+5.[https://zh.wikipedia.org/wiki/3DES](https://zh.wikipedia.org/wiki/3DES)
