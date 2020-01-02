@@ -10,7 +10,7 @@ excerpt: Android Jetpack--Architecture（架构 下）
 
 
 
-##Android Jetpack--Architecture（架构）
+## Android Jetpack--Architecture（架构）
 
 [TOC]
 
@@ -407,7 +407,7 @@ https://developer.android.com/topic/libraries/data-binding/?hl=zh-cn#using_the_d
   在你的应用中或许会用很多不同的转变特性，但是他们不是被默认提供的。你可以使用[MediatorLiveData](https://link.jianshu.com?t=https%3A%2F%2Fdeveloper.android.com%2Freference%2Fandroid%2Farch%2Flifecycle%2FMediatorLiveData.html)类来实现你自己的转变,这是专门为了正确地监听其他`Livedata`实例和过程事件发出的。[MediatorLiveData](https://link.jianshu.com?t=https%3A%2F%2Fdeveloper.android.com%2Freference%2Fandroid%2Farch%2Flifecycle%2FMediatorLiveData.html)会将它的活动/不活动状态正确地传播到源[LiveData](https://link.jianshu.com?t=https%3A%2F%2Fdeveloper.android.com%2Ftopic%2Flibraries%2Farchitecture%2Flivedata.html%23transformations_of_livedata)中。您可以查看[Transformations ](https://link.jianshu.com?t=https%3A%2F%2Fdeveloper.android.com%2Freference%2Fandroid%2Farch%2Flifecycle%2FTransformations.html)类的实现以获得详细信息。
 
 
-####3.参考内容
+#### 3.参考内容
 
 ​	https://developer.android.com/topic/libraries/architecture/livedata?hl=zh-cn#transform_livedata
 
@@ -417,7 +417,7 @@ https://developer.android.com/topic/libraries/data-binding/?hl=zh-cn#using_the_d
 
 
 
-###七、Paging
+### 七、Paging
 
 #### 1.简介
 
@@ -527,7 +527,7 @@ class ConcertBoundaryCallback(
 
 
 
-####3.参考内容
+#### 3.参考内容
 
 https://www.jianshu.com/p/a05943b8a9c1
 
@@ -537,7 +537,7 @@ https://developer.android.com/topic/libraries/architecture/paging/?hl=zh-cn
 
 ### 八、ViewModel
 
-####1.简介
+#### 1.简介
 
 该[`ViewModel`](https://developer.android.google.cn/reference/android/arch/lifecycle/ViewModel.html)课程旨在存储和管理用户界面相关的数据生命周期中的意识的方式。在 [`ViewModel`](https://developer.android.google.cn/reference/android/arch/lifecycle/ViewModel.html)类允许数据生存如屏幕旋转配置更改。
 
