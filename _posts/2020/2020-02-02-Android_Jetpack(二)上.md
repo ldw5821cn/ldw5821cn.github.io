@@ -12,7 +12,7 @@ excerpt: Android Jetpack --Architecture（架构）
 
 [TOC]
 
-###一、Lifecycles 
+### 一、Lifecycles 
 
 #### 1.简介
 
@@ -38,7 +38,7 @@ excerpt: Android Jetpack --Architecture（架构）
 
 
 
-####2.如何实现 LifecycleObserver
+#### 2.如何实现 LifecycleObserver
 
 引入 [`android.arch.lifecycle`](https://developer.android.com/reference/android/arch/lifecycle/package-summary.html?hl=zh-cn) 软件包提供的类和接口。
 
