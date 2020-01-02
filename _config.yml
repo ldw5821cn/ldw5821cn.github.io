@@ -15,15 +15,15 @@ defaults:
 
 # --- 网站信息设置 ---
 # 下面填写你的博客标题
-title: Minimalism
+title: Android 旅人
 # 下面填写你的网络常用名
-name: minimalism
+name: ldw5821
 # 下面填写你的座右铭或者是个性签名
 description: Minimalism is a jekyll theme for minimalist
-# 你博客的 url 地址，比如：https://showzeng.github.io 或者是自定义的域名
+# 你博客的 url 地址，比如：https://ldw5821cn.github.io 或者是自定义的域名
 url: https://showzeng.github.io
 # 在页尾的版权时间信息，比如：2016-2018，默认是 2018 年
-copyright_time: 2018
+copyright_time: 2020
 # 标签页的 logo 及博客的头像，如果你想引用网络图片资源，就取消下面的注解，并填写图片资源的 url 地址
 # 或者，推荐的做法是将这两个图片资源下载到本地的 /assets/img/ 文件夹下，且图片名必须命名为 favicon 和 avatar
 # favicon:
@@ -39,11 +39,11 @@ show_excerpt: true
 
 # --- 社交链接 ---
 # 取消下面的注解，并填写相应的你要开启的社交链接
-twitter: https://twitter.com/showzeng
+twitter: https://twitter.com/liudawei645
 weibo: https://weibo.com/showzeng
-github: https://github.com/showzeng/Minimalism
+github: https://github.com/ldw5821cn/
 # 邮件地址前面带上 mailto:
-email: mailto:kingstageshow@gmail.com
+email: mailto:liudawei645@gmail.com
 # RSS 订阅
 rss: true
 # --- 社交链接 ---
@@ -53,7 +53,7 @@ rss: true
 # 如果你想开启站点统计，取消下面一行注解，并填写相应统计运营商给的 id，可支持多个同时开启
 site_statistics: true
 # cnzz (友盟统计)
-cnzz_id: 1274425891
+#cnzz_id: 1274425891
 # Baidu (百度统计)
 # baidu_id:
 # Google Analytics (谷歌统计)
@@ -86,12 +86,12 @@ comment: true
 # 来必力 uid
 # livere_uid:
 # gitment 用户主，即 GitHub 用户名
-gitment_owner: showzeng
-# GitHub pages 仓库名，如：showzeng.github.io
-gitment_repo: showzeng.github.io
-# gitment 提供的对应 id 和 secret
-gitment_client_id: 76bb22ffd69cb9a2dc11
-gitment_secret: 1bc48766be80fbcb2802679ab796d76ac4fafe44
+gitment_owner: ldw5821cn
+# GitHub pages 仓库名，如：ldw5821cn.github.io
+gitment_repo: ldw5821cn.github.io
+#gitment 提供的对应 id 和 secret
+gitment_client_id: 7c6718c109c6df9824fd
+gitment_secret: a32d67838371cde95fcf3ce36ed2ed419c92f2ab
 # --- 评论设置 ---
 
 # theme: jekyll-theme-minimalism
