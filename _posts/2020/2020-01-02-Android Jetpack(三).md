@@ -5,11 +5,12 @@ category: Jetpack
 tags: [android, Jetpack]
 keywords: Jetpack
 excerpt: Android Jetpack --Behavior
+
 ---
 
 
 
-##Android Jetpack --Behavior（行为）
+## Android Jetpack --Behavior（行为）
 
 [TOC]
 
