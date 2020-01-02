@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android Jetpack --Architecture（架构 上）
-category: JetPack
+category: Jetpack
 tags: [android,Jetpack]
 keywords: Android,JetPack
 excerpt: Android Jetpack --Architecture（架构）
