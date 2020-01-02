@@ -2,7 +2,7 @@
 layout: post
 title: Android 应用逆向工具介绍(一)
 category: android
-tags: [android]
+tags: [android, Minimalism]
 keywords: Android
 excerpt: Android 逆向工具介绍
 ---
