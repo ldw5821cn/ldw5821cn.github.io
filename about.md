@@ -1,11 +1,11 @@
 ---
 layout: about
 title: 关于
-date: 2018-08-12 21:12:52 +0800
+date: 2020-01-01 00:00:00 +0800
 reward: false
 ---
 
-### Minimalism
+### 记录点滴，开启人生之旅
 
 ---
 
