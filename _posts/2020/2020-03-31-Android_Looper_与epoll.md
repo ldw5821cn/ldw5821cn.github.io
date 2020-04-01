@@ -7,9 +7,9 @@ keywords: android,handler,epoll
 excerpt: Android Looper 与 epoll
 ---
 
-##Android Looper 与 epoll
+## Android Looper 与 epoll
 
-### 1.handler 模型
+###  1.handler 模型
 
  Android 中的线程切换，消息传递机制，主要依赖于以下几个角色：
 
@@ -23,7 +23,7 @@ Looper+Thread：循环者，负责从MessageQueue中取出消息，线程推动l
 
 
 
-![image-20200331164308909](../../assets/img/Android_handler/image-20200331164308909.png)
+![image-20200331164308909](../../assets/img/Android_handler/001.png)
 
 ```java
 Handler.sendXXXX  -----> MessageQueue.enqueueMessage(); //消息入队
@@ -72,9 +72,9 @@ public void run() {
  }).start();
 ```
 
-### 2.handler 详解
+###  2.handler 详解
 
-#### 2.1Handler sendXXXXXX;
+####  2.1Handler sendXXXXXX;
 
 ```java
  private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
@@ -100,7 +100,7 @@ public void run() {
  }
 ```
 
-####2.2.主线程 looper.loop();
+#### 2.2.主线程 looper.loop();
 
 ```java
 for (;;) { // 死循环为什么不会导致主线程卡死？
@@ -140,7 +140,7 @@ Message next() {
         }
 ```
 
-####2.3 死循环为什么不会导致主线程卡死？
+#### 2.3 死循环为什么不会导致主线程卡死？
 
 ```java
 private native void nativePollOnce(long ptr, int timeoutMillis); // 休眠
@@ -149,13 +149,13 @@ private native static void nativeWake(long ptr);//唤醒
 
 这里就涉及到 Linux pipe/epoll 机制。在主线程的 MessageQueue 没有消息时，便阻塞在 `MessageQueue.next()` 中的 `nativePollOnce()` 方法里，此时主线程会释放 CPU 资源进入休眠状态，直到下个消息到达或者有事务发生，通过往 pipe 管道写端写入数据来唤醒主线程工作。这里采用的 epoll 机制，是一种 IO 多路复用机制，可以同时监控多个描述符，当某个描述符就绪（读或写就绪），则立刻通知相应程序进行读或写操作，即读写是阻塞的。所以主线程大多数时候都是处于休眠状态，并不会消耗大量 CPU 资源。
 
-#####2.3.1.epoll基础知识介绍
+##### 2.3.1.epoll基础知识介绍
 
 epoll机制提供了Linux平台上最高效的I/O复用机制，因此有必要介绍一下它的基础知识。
 从调用方法上看，epoll的用法和select/poll非常类似，其主要作用就是I/O复用，即在一个地方等待多个文件句柄的I/O事件。
 下面通过一个简单例子来分析epoll的工作流程。
 
-#####2.3.2.epoll工作流程分析案例
+##### 2.3.2.epoll工作流程分析案例
 
 ```c++
 /*
@@ -233,7 +233,7 @@ struct  epoll_eventresultEvents[10];
 }
 ```
 
-#####2.3.3.源码中的epoll原理
+##### 2.3.3.源码中的epoll原理
 
 ```c++
 /Users/liudawei/worksapace/source_code/platform_frameworks_base/core/jni/android_os_MessageQueue.cpp // C++ 文件，动态注册
@@ -503,6 +503,6 @@ void Looper::wake() {
 }
 ```
 
-### 3.参考资料
+###  3.参考资料
 
 1.《深入理解Android 卷二》，邓凡平 
