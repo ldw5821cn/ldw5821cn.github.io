@@ -23,7 +23,7 @@ Looper+Thread：循环者，负责从MessageQueue中取出消息，线程推动l
 
 
 
-![image-20200331164308909](../../assets/img/Android_handler/001.png)
+![image-20200331164308909](https://ldw5821cn.github.io/assets/img/Android_handler/001.png)
 
 ```java
 Handler.sendXXXX  -----> MessageQueue.enqueueMessage(); //消息入队
